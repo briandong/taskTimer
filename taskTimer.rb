@@ -1,5 +1,8 @@
 #!/usr/bin/env ruby
 
+require "benchmark"
+require "pp"
+
 # Definition of a sample user class
 class User
 
@@ -23,7 +26,7 @@ if __FILE__ == $0
 	# run command
 	cmd = ARGV[0]
 	puts "Executing command: #{cmd}"
-	system cmd
+	pp Benchmark.measure {system cmd}
 
 	# stop time
 	stop = Time.now
